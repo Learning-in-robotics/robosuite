@@ -1,0 +1,22 @@
+<mujoco model="table_mount">
+  <asset>
+    <!-- ceramic table texture and material-->
+    <texture file="../textures/ceramic.png" type="cube" name="tex-ceramic"/>
+    <material name="table_ceramic" reflectance="0.0" shininess="0.0" specular="0.2" texrepeat="1 1" texture="tex-ceramic" />
+    <!-- steel legs -->
+    <texture file="../textures/steel-brushed.png" type="cube" name="tex-steel-brushed"/>
+    <material name="table_legs_metal" reflectance="0.8" shininess="0.8" texrepeat="1 1" texture="tex-steel-brushed" />
+  </asset>
+  <worldbody>
+    <!-- Table body -->
+    <body name="table" pos="0.5 0 0.0">
+      <geom name="table_top" pos="0 0 0" size="0.8 0.8 0.025" type="box" material="table_ceramic" />
+      <body name="table_legs" pos="0 0 0">
+        <geom name="table_leg1" pos="0.35 0.35 -0.4" size="0.05 0.05 0.4" type="box" material="table_legs_metal" />
+        <geom name="table_leg2" pos="-0.35 0.35 -0.4" size="0.05 0.05 0.4" type="box" material="table_legs_metal" />
+        <geom name="table_leg3" pos="0.35 -0.35 -0.4" size="0.05 0.05 0.4" type="box" material="table_legs_metal" />
+        <geom name="table_leg4" pos="-0.35 -0.35 -0.4" size="0.05 0.05 0.4" type="box" material="table_legs_metal" />
+      </body>
+    </body>
+  </worldbody>
+</mujoco>
