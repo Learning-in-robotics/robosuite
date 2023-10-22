@@ -6,8 +6,6 @@ import numpy as np
 from robosuite.models.mounts.mount_model import MountModel
 from robosuite.utils.mjcf_utils import xml_path_completion
 
-from robosuite.utils.mjcf_utils import recolor_collision_geoms
-
 
 class TableMount(MountModel):
     """
@@ -19,17 +17,6 @@ class TableMount(MountModel):
 
     def __init__(self, idn=0):
         super().__init__(xml_path_completion("mounts/table_mount.xml"), idn=idn)
-
-        self.tabletop = self.worldbody.find("./body[@name='table_top']")
-
-        WHITE = [1, 1, 1, 1]
-
-        # Recolor all geoms
-        recolor_collision_geoms(
-            root=self.worldbody,
-            rgba=WHITE,
-            exclude=lambda e: True if e.get("name", None) == "table_top" else False,
-        )
 
     @property
     def top_offset(self):

@@ -550,7 +550,7 @@ class MujocoXMLModel(MujocoXML, MujocoModel):
         add_prefix(root=self.root, prefix=self.naming_prefix, exclude=self.exclude_from_prefixing)
 
         # Recolor all collision geoms appropriately
-        recolor_collision_geoms(root=self.worldbody, rgba=self.contact_geom_rgba)
+        # recolor_collision_geoms(root=self.worldbody, rgba=self.contact_geom_rgba)
 
         # Add default materials
         if macros.USING_INSTANCE_RANDOMIZATION:
